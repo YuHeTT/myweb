@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>状元桥中学 - 学校介绍</title>
+    <style>
+        /* 全局样式重置与基础设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "微软雅黑", "宋体", sans-serif;
+        }
+        body {
+            background-color: #f5f5f0;
+            color: #333;
+            line-height: 1.8;
+        }
+        /* 页面容器：限制最大宽度，居中显示 */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        /* 返回首页按钮样式 */
+        .back-btn {
+            display: inline-block;
+            background-color: #2c5282;
+            color: white;
+            font-size: 16px;
+            padding: 10px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 20px 0 40px 0;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .back-btn:hover {
+            background-color: #1a365d;
+        }
+        /* 通用板块样式：所有内容板块共用 */
+        .section {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        /* 板块标题样式 */
+        .section-title {
+            color: #2c5282;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e6f2ff;
+        }
+        /* 1. 学校简介板块：纯文字，单独设置文字样式 */
+        .intro-text {
+            font-size: 18px;
+            text-align: justify;
+            color: #444;
+            line-height: 2;
+        }
+        /* 2. 师资力量板块：文字+2张图，弹性布局 */
+        .teacher-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+        .teacher-text {
+            flex: 1;
+            min-width: 300px; /* 最小宽度，防止手机端挤压 */
+            font-size: 18px;
+            color: #444;
+        }
+        .teacher-imgs {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        .teacher-img {
+            width: 220px; /* 固定图片宽度 */
+            height: 160px; /* 固定图片高度 */
+            object-fit: cover; /* 保持比例，裁剪溢出 */
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        /* 3. 教学设备板块：文字+4张图，网格布局 */
+        .equipment-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+        .equipment-text {
+            flex: 1;
+            min-width: 300px;
+            font-size: 18px;
+            color: #444;
+        }
+        .equipment-imgs {
+            flex: 2; /* 占比更大，容纳4张图 */
+            min-width: 300px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2列网格 */
+            gap: 15px;
+        }
+        .equipment-img {
+            width: 100%; /* 自适应网格列宽 */
+            height: 140px; /* 固定高度 */
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        /* 4. 食宿环境板块：文字+3张图，弹性布局 */
+        .food-dorm-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: center;
+        }
+        .food-dorm-text {
+            flex: 1;
+            min-width: 300px;
+            font-size: 18px;
+            color: #444;
+        }
+        .food-dorm-imgs {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            flex-wrap: wrap; /* 手机端自动换行 */
+            gap: 15px;
+            justify-content: center;
+        }
+        .food-dorm-img {
+            width: 180px; /* 固定宽度 */
+            height: 130px; /* 固定高度 */
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        /* 页脚样式 */
+        footer {
+            background-color: #2c5282;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        /* 响应式调整：平板/手机端适配 */
+        @media (max-width: 768px) {
+            .section {
+                padding: 20px;
+            }
+            .section-title {
+                font-size: 22px;
+            }
+            .intro-text, .teacher-text, .equipment-text, .food-dorm-text {
+                font-size: 16px;
+            }
+            .teacher-img {
+                width: 180px;
+                height: 130px;
+            }
+            .food-dorm-img {
+                width: 150px;
+                height: 110px;
+            }
+        }
+        @media (max-width: 480px) {
+            .teacher-imgs {
+                flex-direction: column; /* 手机端2张师资图纵向排列 */
+                align-items: center;
+            }
+            .equipment-imgs {
+                grid-template-columns: 1fr; /* 手机端教学设备图1列排列 */
+            }
+            .back-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 返回首页按钮 -->
+        <a href="index.html" class="back-btn">← 返回首页</a>
+
+        <!-- 1. 学校简介板块 -->
+        <section class="section">
+            <h2 class="section-title">学校简介</h2>
+            <p class="intro-text">在千年古县，娲皇故都——周口市西华县，状元桥中学正以顶尖之姿，呈现出中原教育优等力量的最佳演绎。这是一所经周口市教体局批准的全日制民办中学，建普通高中学籍档案，培养出了一批又一批的优秀学生。</p>
+        </section>
+
+        <!-- 2. 师资力量板块 -->
+        <section class="section">
+            <h2 class="section-title">师资力量</h2>
+            <div class="teacher-content">
+                <div class="teacher-text">
+                    状元桥中学的教师大多都是高薪从全国各地招聘的优秀教师，有着丰富的教学经验，且认真负责，九大教研组长都是培养过200余名清华北大学子的顶级教师。
+                </div>
+                <div class="teacher-imgs">
+                    <!-- 【图片路径修改1】：替换为实际师资图片路径，如"images/teacher1.jpg" -->
+                    <img src="..\image\IMG_20251123_142137.jpg" alt="教师团队教研" class="teacher-img">
+                    <!-- 【图片路径修改2】：替换为实际师资图片路径，如"images/teacher2.jpg" -->
+                    <img src="..\image\IMG_20251123_142157.jpg" alt="优秀教师授课" class="teacher-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. 教学设备板块 -->
+        <section class="section">
+            <h2 class="section-title">教学设备</h2>
+            <div class="equipment-content">
+                <div class="equipment-text">
+                    状元桥中学采用最先进的教学设备，教室配置堪称全省模范。
+                </div>
+                <div class="equipment-imgs">
+                    <!-- 【图片路径修改3】：替换为实际教学设备图片路径，如"images/equipment1.jpg" -->
+                    <img src="..\image\IMG_20251123_142447.jpg" alt="多媒体教室" class="equipment-img">
+                    <!-- 【图片路径修改4】：替换为实际教学设备图片路径，如"images/equipment2.jpg" -->
+                    <img src="..\image\IMG_20251123_142509.jpg" alt="实验室设备" class="equipment-img">
+                    <!-- 【图片路径修改5】：替换为实际教学设备图片路径，如"images/equipment3.jpg" -->
+                    <img src="..\image\IMG_20251123_142528.jpg" alt="智慧黑板" class="equipment-img">
+                    <!-- 【图片路径修改6】：替换为实际教学设备图片路径，如"images/equipment4.jpg" -->
+                    <img src="..\image\IMG_20251123_142600.jpg" alt="图书馆设备" class="equipment-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. 食宿环境板块 -->
+        <section class="section">
+            <h2 class="section-title">食宿环境</h2>
+            <div class="food-dorm-content">
+                <div class="food-dorm-text">
+                    状元桥中学的食堂环境优秀，每餐标准严格把控，确保学生吃到优质饭菜，宿舍条件也处于全国先进行列。
+                </div>
+                <div class="food-dorm-imgs">
+                    <!-- 【图片路径修改7】：替换为实际食宿图片路径，如"images/food1.jpg" -->
+                    <img src="..\image\IMG_20251123_143433.jpg" alt="食堂环境" class="food-dorm-img">
+                    <!-- 【图片路径修改8】：替换为实际食宿图片路径，如"images/dorm1.jpg" -->
+                    <img src="..\image\IMG_20251123_143406.jpg" alt="学生宿舍" class="food-dorm-img">
+                    <!-- 【图片路径修改9】：替换为实际食宿图片路径，如"images/food2.jpg" -->
+                    <img src="..\image\IMG_20251123_143300.jpg" alt="食堂餐食" class="food-dorm-img">
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>御鹤天棠</p>
+    </footer>
+</body>
+</html>
