@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>状元桥中学 - 校园风采</title>
+    <style>
+        /* 全局样式重置与基础设置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "微软雅黑", "宋体", sans-serif;
+        }
+        body {
+            background-color: #f5f5f0;
+            color: #333;
+            line-height: 1.8;
+        }
+        /* 页面容器：限制最大宽度，居中显示 */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        /* 返回首页按钮样式 */
+        .back-btn {
+            display: inline-block;
+            background-color: #2c5282;
+            color: white;
+            font-size: 16px;
+            padding: 10px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin: 20px 0 40px 0;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .back-btn:hover {
+            background-color: #1a365d;
+        }
+        /* 主体内容区：包含文字和图片 */
+        .main-content {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 40px;
+        }
+        /* 文字引言区样式 */
+        .intro-section {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #e6f2ff;
+        }
+        .intro-title {
+            color: #2c5282;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .intro-text {
+            font-size: 19px;
+            color: #444;
+            line-height: 1.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        /* 图片网格展示区：核心布局，适配不同设备 */
+        .img-grid {
+            display: grid;
+            /* 自动填充列数，最小列宽180px，列间距15px */
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+        }
+        /* 单张图片样式：严格限制尺寸，防止溢出 */
+        .campus-img {
+            width: 100%; /* 自适应网格列宽 */
+            height: 140px; /* 固定高度，保证统一视觉 */
+            object-fit: cover; /* 保持比例，裁剪溢出部分 */
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease; /* hover动效 */
+        }
+        .campus-img:hover {
+            transform: translateY(-5px); /* 轻微上浮，提升交互感 */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+        /* 页脚样式 */
+        footer {
+            background-color: #2c5282;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        /* 响应式调整：针对不同设备优化 */
+        @media (max-width: 1024px) {
+            /* 平板端：调整图片高度 */
+            .campus-img {
+                height: 120px;
+            }
+            .intro-text {
+                font-size: 18px;
+            }
+        }
+        @media (max-width: 768px) {
+            /* 小平板/大手机：缩小内边距、标题字号 */
+            .main-content {
+                padding: 20px;
+            }
+            .intro-title {
+                font-size: 24px;
+            }
+            .intro-text {
+                font-size: 17px;
+            }
+            .campus-img {
+                height: 110px;
+            }
+        }
+        @media (max-width: 480px) {
+            /* 手机端：进一步缩小图片高度、按钮占满宽度 */
+            .back-btn {
+                width: 100%;
+                text-align: center;
+            }
+            .intro-title {
+                font-size: 22px;
+            }
+            .intro-text {
+                font-size: 16px;
+            }
+            .campus-img {
+                height: 100px;
+            }
+            .img-grid {
+                gap: 10px; /* 减小图片间距，适配窄屏 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 返回首页按钮 -->
+        <a href="index.html" class="back-btn">← 返回首页</a>
+
+        <!-- 主体内容区：文字+图片 -->
+        <div class="main-content">
+            <!-- 文字引言区 -->
+            <div class="intro-section">
+                <h2 class="intro-title">校园风采</h2>
+                <p class="intro-text">状元桥中学的校园充满了美，这里既有学子们的青春飞扬，又有美丽的校园风景</p>
+            </div>
+
+            <!-- 19张图片网格展示区：标注图片路径修改位置 -->
+            <div class="img-grid">
+                <!-- 第1张图【修改路径1】：替换为实际图片路径，如"images/campus1.jpg" -->
+                <img src="../image/1763877449126.png" alt="校园风景1" class="campus-img">
+                <!-- 第2张图【修改路径2】 -->
+                <img src="../image/IMG_20251123_160929.jpg" alt="校园风景2" class="campus-img">
+                <!-- 第3张图【修改路径3】 -->
+                <img src="../image/1763877465119.png" alt="校园风景3" class="campus-img">
+                <!-- 第4张图【修改路径4】 -->
+                <img src="../image/1763877474067.png" alt="校园风景4" class="campus-img">
+                <!-- 第5张图【修改路径5】 -->
+                <img src="../image/IMG_20251123_152302.jpg" alt="校园风景5" class="campus-img">
+                <!-- 第6张图【修改路径6】 -->
+                <img src="../image/IMG_20251123_153647.jpg" alt="校园风景6" class="campus-img">
+                <!-- 第7张图【修改路径7】 -->
+                <img src="../image/IMG_20251123_160824.jpg" alt="校园风景7" class="campus-img">
+                <!-- 第8张图【修改路径8】 -->
+                <img src="../image/IMG_20251123_160838.jpg" alt="校园风景8" class="campus-img">
+                <!-- 第9张图【修改路径9】 -->
+                <img src="../image/IMG_20251123_160850.jpg" alt="校园风景9" class="campus-img">
+                <!-- 第10张图【修改路径10】 -->
+                <img src="../image/IMG_20251123_160902.jpg" alt="校园风景10" class="campus-img">
+                <!-- 第11张图【修改路径11】 -->
+                <img src="../image/IMG_20251123_160916.jpg" alt="校园风景11" class="campus-img">
+                <!-- 第12张图【修改路径12】 -->
+                <img src="../image/wzq1.jpg" alt="校园风景12" class="campus-img">
+                <!-- 第13张图【修改路径13】 -->
+                <img src="../image/wzq2.jpg" alt="校园风景13" class="campus-img">
+                <!-- 第14张图【修改路径14】 -->
+                <img src="../image/wzq3.jpg" alt="校园风景14" class="campus-img">
+                <!-- 第15张图【修改路径15】 -->
+                <img src="../image/IMG_20251123_161250.jpg" alt="校园风景15" class="campus-img">
+                <!-- 第16张图【修改路径16】 -->
+                <img src="../image/IMG_20251123_161303.jpg" alt="校园风景16" class="campus-img">
+                <!-- 第17张图【修改路径17】 -->
+                <img src="../image/IMG_20251123_162255.jpg" alt="校园风景17" class="campus-img">
+                <!-- 第18张图【修改路径18】 -->
+                <img src="../image/IMG_20251123_162307.jpg" alt="校园风景18" class="campus-img">
+                <!-- 第19张图【修改路径19】 -->
+                <img src="../image/dy1.png" alt="校园风景19" class="campus-img">
+                <img src="../image/dy2.jpg" alt="校园风景20" class="campus-img">
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <p>御鹤天棠</p>
+    </footer>
+</body>
+</html>
